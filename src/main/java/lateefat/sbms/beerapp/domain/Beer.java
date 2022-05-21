@@ -1,4 +1,4 @@
-package lateefat.sbms.beerapp.web.domain;
+package lateefat.sbms.beerapp.domain;
 
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
