@@ -31,10 +31,10 @@ public class BeerDto {
     @Null
     private OffsetDateTime modifiedDate;
 
-    @NotBlank
+    @NotNull
     private BeerStyle beerStyle;
 
-    @NotNull
+    @NotBlank
     private String beerName;
 
     @Positive
