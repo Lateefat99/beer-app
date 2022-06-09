@@ -1,0 +1,19 @@
+Sample application demonstrating how to use spring rest docs with JUnit5
+
+BeerControllerTest makes a call to a very simple service and produce
+three documentation snippets
+
+One showing how to make a request using cUrl;
+include::{snippets}/orders/curl-request.adoc[]
+
+One showing http request;
+include::{snippets}/orders/http-request.adoc[]
+
+One showing http response;
+include::{snippets}/orders/http-response.adoc[]
+
+Response Body
+include::{snippets}/orders/response-body.adoc[]
+
+Response Fields
+include::{snippets}/orders/response-fields.adoc[]
