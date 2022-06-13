@@ -1,8 +1,10 @@
 package lateefat.sbms.beerapp.web.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lateefat.sbms.beerapp.bootstrap.BeerLoader;
 import lateefat.sbms.beerapp.domain.Beer;
 import lateefat.sbms.beerapp.repositories.BeerRepository;
+import lateefat.sbms.beerapp.services.BeerService;
 import lateefat.sbms.beerapp.web.model.BeerDto;
 import lateefat.sbms.beerapp.web.model.BeerStyle;
 import org.junit.jupiter.api.Test;
@@ -49,11 +51,11 @@ class BeerControllerTest {
     ObjectMapper objectMapper;
 
     @MockBean
-    BeerRepository beerRepository;
+    BeerService beerService;
 
     @Test
     void getBeerById() throws Exception{
-        given(beerRepository.findById(any())).willReturn(Optional.of(Beer.builder().build()));
+        given(beerService.getBeerById(any())).willReturn(getValidBeerDto());
         mockMvc.perform(get("/api/v1/beer/{beerId}", UUID.randomUUID())
                 .param("iscold", "yes")
                 .accept(MediaType.APPLICATION_JSON))
@@ -118,7 +120,7 @@ class BeerControllerTest {
                 .beerName("Beer Name")
                 .beerStyle(BeerStyle.ALE)
                 .price(new BigDecimal("2.90"))
-                .upc(2223344556L)
+                .upc(BeerLoader.BEER_1_UPC)
                 .build();
     }
 
